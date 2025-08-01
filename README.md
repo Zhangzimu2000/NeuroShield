@@ -20,4 +20,20 @@ This repository provides a comprehensive framework for analyzing, detecting, and
   + fine_tune_model: Fine-tunes layers with high anomaly counts
   + evaluate_model: Evaluates accuracy on clean and adversarial datasets
 * test.py Tests a pre-trained model’s performance against adversarial attacks. Key components:
-* 
+  + Loads pre-trained architectures (ResNet18, ResNet34, ResNet50, etc.)
+  + Uses evaluate_model from train.py for adversarial and clean accuracy
+* utils.py Utility functions for model analysis and layer-wise operations. Key functions:
+  + get_model_layers: Extracts all valid layers from a model
+  + get_layer_output: Captures intermediate outputs of specified layers
+  + get_anomaly_neurons: Identifies neurons with abnormal activations via thresholding or statistical methods
+* neuron.py Focuses on neuron-level anomaly detection and handling. Key components:
+  + Custom ImageDataset for loading labeled datasets
+  + process_batch: Identifies misclassified or adversarial samples
+  + save_results: Exports evaluation results to JSON
+
+## Example Workflow
+1. Fine-tune a model and detect anomalies
+  * Run train.py to fine-tune a pre-trained ResNet50 on CIFAR-10.
+  * Monitor anomaly statistics printed during training.
+2. Test model robustness
+  * Execute test.py to evaluate performance on clean and adversarial inputs.
