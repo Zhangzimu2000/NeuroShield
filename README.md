@@ -32,6 +32,7 @@ This repository provides a comprehensive framework for analyzing, detecting, and
   + save_results: Exports evaluation results to JSON
 
 ## Example Workflow
+
 1. Fine-tune a model and detect anomalies
   * Run train.py to fine-tune a pre-trained ResNet50 on CIFAR-10.
   * Monitor anomaly statistics printed during training.
